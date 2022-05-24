@@ -10,5 +10,5 @@ jobs:
       uses: xRealNeon/VuePagesAction@1.0.1
       with:
         username: 'romulolessa'
-        reponame: 'dacxi-vue.git'
+        reponame: 'dacxi-vue'
         token: ${{ secrets.GITHUB_TOKEN }} 
