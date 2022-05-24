@@ -1,33 +1,14 @@
-// .github/workflows/deploy.yaml
-name: Test
-on:
-  push:
-    branches:
-      - master
+name: Build Vue
+on: [push]
 jobs:
-  deploy:
+  build_vue:
     runs-on: ubuntu-latest
+    name: Build Vue
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-      - name: setup git auth
-        env:
-          email: 'romulo-lessa@hotmail.com'
-          username: 'romulolessa'
-          access_token: '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'
-        run: |
-          git config --global credential.helper store
-          echo "https://${access_token}:x-oauth-basic@github.com" > ~/.git-credentials
-          git config --global user.email $email
-          git config --global user.name $username
-      - name: deploy to gh-pages
-        run: |
-          npm i
-          NODE_ENV=production npm run build
-          cd dist
-          git init
-          git add -A
-          git commit -m "🚀 Deploy id ${GITHUB_RUN_ID}"
-          git push -f "https://github.com/${GITHUB_REPOSITORY}.git" master:gh-pages
+    - uses: actions/checkout@v2
+    - id: Build-Vue
+      uses: xRealNeon/VuePagesAction@1.0.1
+      with:
+        username: 'YourGithubName'
+        reponame: 'YourRepoName'
+        token: ${{ secrets.GITHUB_TOKEN }} 
