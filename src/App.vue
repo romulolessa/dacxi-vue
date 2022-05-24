@@ -1,26 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Topo />
+  <main>
+    <Meio />
+    <Historia />
+  </main>
+  <RodaPe />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Topo from './components/TopoHeader.vue'
+import Meio from './components/MeioMain.vue'
+import Historia from './components/HistoriaMain.vue'
+import RodaPe from './components/PeFooter.vue'
+
+import './style/global.css'
+import './assets/style.css'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Topo,
+    Meio,
+    Historia,
+    RodaPe
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
